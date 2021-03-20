@@ -7,12 +7,13 @@ import bus from '../../images/Frame-1.png';
 import train from '../../images/Group.png';
 
 const Home = () => {
-    const imgStyle = {}
+    
     return (
         <div>
+           
             <div className="top-fixedBanner">
-
                 <div className="card-container">
+              
                     <div className="cardDiv">
                         <img className='imgStyle' src={bike} alt="" />
                         <div className="cardTitle">

@@ -3,6 +3,11 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { Button } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faGolfBall, faGoogle, faGooglePlus } from '@fortawesome/free-solid-svg-icons'
+import FacebookIcon from '@material-ui/icons/Facebook';
+import GTranslateIcon from '@material-ui/icons/GTranslate';
+import './LogIn.css';
 
 
 
@@ -13,21 +18,7 @@ if (!firebase.apps.length) {
 }
 
 const LogIn = () => {
-    const [user, setUser] = useState({
-
-    //     isSignedIn: false,
-    //     name: '',
-    //     email: '',
-    //     photo: '',
-    //     password: ''
-})
-    // const newUserInfo = {
-    //     isSignedIn: true,
-    //     name: '',
-    //     email: '',
-    //     photo: '',
-    //     password: ''
-    // }
+    const [user, setUser] = useState({})
 
     var googleProvider = new firebase.auth.GoogleAuthProvider();
     var facebookProvider = new firebase.auth.FacebookAuthProvider();
@@ -100,26 +91,37 @@ const LogIn = () => {
 
         e.preventDefault()
     }
-
-
     return (
         <div>
 
-            <form onSubmit={handleFormSubmit}>
-                <input type="text" name="name" onBlur={handleBlur} placeholder="Your Name" />
-                <br />
-                <input type="text" name="email" onBlur={handleBlur} placeholder="Your Email Address" required /><br />
-                <input type="password" name="password" onBlur={handleBlur} placeholder="Your Password" required /><br />
-                <input type="submit" value="Submit" /><br /><br /><br />
-            </form>
+            <div className="form-div">
+                <form onSubmit={handleFormSubmit}>
+                    <input className="inputStyle" type="text" name="name" onBlur={handleBlur} placeholder="Your Name" />
+                    <br /><br />
+                    <input className="inputStyle" type="text" name="email" onBlur={handleBlur} placeholder="User Name Or Email" required /><br />
+                    <br />
+                    <input className="inputStyle" type="password" name="password" onBlur={handleBlur} placeholder="Password" required /><br />
+                    <br />
+                    <input className="inputStyle" type="password" name="email" onBlur={handleBlur} placeholder="Confirm Password" required /><br />
+                    <br />
+                    <input className="inputStyle" type="submit" value="Submit" /><br /><br /><br />
+                </form>
 
-            <img src={user.photoURL} alt="" />
-            <h3>User Email:{user.email}</h3>
-
-
+            </div>
             <div className="btn-div">
-                <Button onClick={handleGoogleSignIn} variant="contained" color="secondary">  Sign In With Google</Button><br />
-                <Button onClick={handleFacebookSignIn} variant="contained" color="primary">Sign In With Facebook</Button><br />
+                <Button onClick={handleGoogleSignIn} variant="contained" color="secondary"><GTranslateIcon /> Sign In With Google</Button><br />
+                <br />
+                <Button onClick={handleFacebookSignIn} variant="contained" color="primary"><FacebookIcon /> Sign In With Facebook</Button><br />
+                {/*          
+                <FontAwesomeIcon icon={faCoffee} />
+                <FontAwesomeIcon icon={faGolfBall} /> */}
+                {/* <FontAwesomeIcon  icon={faGooglePlus} /> */}
+                {/* <FontAwesomeIcon  icon={faGoogle} /> */}
+
+                {/* <img src={user.photoURL} alt="" />
+                <h3>User Email:{user.email}</h3>
+                <h5>User Name:{user.name}</h5>
+ */}
             </div>
         </div>
     );

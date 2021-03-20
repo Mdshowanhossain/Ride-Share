@@ -1,0 +1,31 @@
+.destination-fil{
+    background-color: lightgray;
+    width: 350px;
+    height: 350px;
+    border-radius: 30px;
+        margin-top: 40px;
+
+}
+.input-div{
+    text-align: center;
+    padding-top: 50px;
+}
+.inputStayle{
+    padding: 8px;
+    border-radius: 5px;
+}
+.mapStyle{
+    width:800;
+    height:800;
+  
+}
+.map{
+    text-align: center;
+    display: flex;
+    padding-left: 220px;
+    padding-top: 50px;
+}
+.total-div{
+    display: flex;
+
+}

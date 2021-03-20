@@ -1,0 +1,16 @@
+.form-div{
+text-align: center;
+margin-top: 100px;
+
+padding-top: 50px;
+background-color: orange;
+border-radius: 30px;
+}
+.inputStyle{
+    padding: 10px;
+    /* border-radius: 10px; */
+}
+.btn-div{
+    padding-top: 20px;
+    text-align: center;
+}
