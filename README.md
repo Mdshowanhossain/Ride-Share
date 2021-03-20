@@ -10,7 +10,15 @@ Here is Bangla Rider Project
 
 Here I am use -----
 
-#React
+# React
 ---------------
-#Material ui
-#
+# Material ui
+---------------
+# Bootstrap
+---------------
+
+## License & Copyright
+
+---------------
+
+@ Showan Hossain, Khulna, Bangladesh.
