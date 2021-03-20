@@ -1,0 +1,48 @@
+.top-fixedBanner{
+    background-image: url("../../images/Bg.png");
+    height: 100%;
+    min-height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body{
+margin: 0;
+padding: 50px;
+}
+
+.bgImageStyle{
+ width: 700px;
+ width: 100%;
+ max-width: 100%;
+}
+
+.cardDiv{
+    width:300px;
+    margin:10px;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 2px black;
+    background-color: white;
+}
+
+.cardDiv .imageDiv{}
+
+.imgStyle{
+    text-align: center;
+    width: 100px;
+    max-width: 100%;
+}
+.cardTitle{
+    text-align: center;
+    padding-bottom: 5px;
+}
+.cardDiv:hover{
+    box-shadow: 6px 2px 5px black;
+}
+.card-container{
+    box-sizing: border-box;
+    display: flex;
+    text-align: center;  
+    padding-top: 100px;
+}
