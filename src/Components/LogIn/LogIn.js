@@ -18,7 +18,12 @@ if (!firebase.apps.length) {
 }
 
 const LogIn = () => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({
+        isSignedIn: false,
+        name: '',
+        email: '',
+        photo: ''
+    })
 
     var googleProvider = new firebase.auth.GoogleAuthProvider();
     var facebookProvider = new firebase.auth.FacebookAuthProvider();
@@ -27,11 +32,15 @@ const LogIn = () => {
         firebase.auth()
             .signInWithPopup(googleProvider)
             .then((result) => {
-                var credential = result.credential;
-                var token = credential.accessToken;
-                var user = result.user;
+                const { displayName, photoURL, email } = result.user
+                const signedInUser = {
+                    isSignedIn: true,
+                    name: displayName,
+                    email: email,
+                    photo: photoURL
+                }
                 console.log(user);
-                setUser(user)
+                setUser(signedInUser)
             })
             .catch((error) => {
                 var errorCode = error.code;
@@ -79,8 +88,8 @@ const LogIn = () => {
     const handleFormSubmit = (e) => {
         if (user.name && user.password) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-                .then((userCredential) => {
-                    var user = userCredential.user;
+                .then(result => {
+                    console.log(result);
                 })
                 .catch((error) => {
                     var errorCode = error.code;
@@ -88,12 +97,12 @@ const LogIn = () => {
                     console.log(errorCode, errorMessage);
                 });
         }
+        e.preventDefault();
 
-        e.preventDefault()
     }
+
     return (
         <div>
-
             <div className="form-div">
                 <form onSubmit={handleFormSubmit}>
                     <input className="inputStyle" type="text" name="name" onBlur={handleBlur} placeholder="Your Name" />
@@ -109,6 +118,16 @@ const LogIn = () => {
 
             </div>
             <div className="btn-div">
+                {
+                    user.isSignedIn && <div>
+
+                        <h3>Welcome, {user.name}</h3>
+                        <p>Your Email:{user.email}</p>
+                        <img src={user.photo} alt="" />
+
+                    </div>
+                }
+
                 <Button onClick={handleGoogleSignIn} variant="contained" color="secondary"><GTranslateIcon /> Sign In With Google</Button><br />
                 <br />
                 <Button onClick={handleFacebookSignIn} variant="contained" color="primary"><FacebookIcon /> Sign In With Facebook</Button><br />
@@ -128,3 +147,28 @@ const LogIn = () => {
 };
 
 export default LogIn;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

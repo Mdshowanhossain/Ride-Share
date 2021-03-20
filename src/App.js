@@ -13,6 +13,7 @@ import Blog from './Components/Blog/Blog';
 import Contact from './Components/Contact/Contact';
 import LogIn from './Components/LogIn/LogIn';
 import CopyData from './Components/copyData/CopyData';
+import NotFound from './Components/NotFound/NotFound';
 function App() {
   return (
     <div>
@@ -31,10 +32,10 @@ function App() {
           <Route path='/home'><Home /></Route>
           <Route path='/destination'> <Destination /> </Route>
           <Route path='/blog'><Blog /></Route>
-          <Route path='/contact'><Contact /><Contact /></Route>
+          <Route path='/contact'><Contact /></Route>
           <Route path='/logIn'><LogIn /></Route>
           <Route exact path='/'><Home /></Route>
-          <Route path='*'></Route>
+          <Route path='*'><NotFound/></Route>
         </Switch>
       </Router>
     </div>
